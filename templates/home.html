@@ -1,0 +1,35 @@
+{% extends "layout.html" %} {% block body %}
+
+{% include "includes/_navbar_landing.html" %}
+<!-- start: Hero Section -->
+<section class="hero" id="home">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="copy" data-aos="fade-up" data-aos-duration="3000">
+                    <div class="text-label">
+                        Try to apply various features to your image
+                    </div>
+                    <div class="text-hero-bold">
+                        Digital Image Processing
+                    </div>
+                    <div class="text-hero-regular">
+                        Aplikasi ini akan menerima citra yang Anda upload, kemudian Anda dapat mengolahnya dengan berbagai fungsi yang ada pada pengolahan citra digital.
+                    </div>
+                    <div class="cta">
+                        <form id="" action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data">
+                            <div class="text-hero-form"> Upload Image </div> 
+                            <input name="file" type="file" id="inputGroupFile04" accept="image/*">
+                            <button type="submit" class="btn btn-home btn-primary">Upload</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6" data-aos="zoom-in" data-aos-duration="3000">
+                <img src="../static/img/illustration/Wavy_Bus-43_Single-04.jpg" class="w-100" alt="img">
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end : Hero Section -->
+{% endblock %}

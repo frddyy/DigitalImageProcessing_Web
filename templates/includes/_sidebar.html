@@ -1,0 +1,378 @@
+<!-- start: Sidebar -->
+<div class="sidebar position-fixed top-0 bottom-0 bg-white border-end">
+    <div class="d-flex align-items-center p-3">
+        <a href="/home" class="sidebar-logo text-uppercase fw-bold text-decoration-none text-indigo fs-4">PCD</a>
+        <i class="sidebar-toggle ri-arrow-left-circle-line ms-auto fs-5 d-none d-md-block"></i>
+    </div>
+    <ul class="sidebar-menu p-3 m-0 mb-0">
+        <li class="sidebar-menu-item" id="home">
+            <a href="/home">
+                <i class="ri-dashboard-line sidebar-menu-item-icon"></i>
+                Home
+            </a>
+        </li>
+        <li class="sidebar-menu-item" id="about">
+            <a href="/about">
+                <i class="ri-user-line sidebar-menu-item-icon"></i>
+                About
+            </a>
+        </li>
+        <li class="sidebar-menu-item active" id="uploaded">
+            <a href="#">
+                <i class="ri-gallery-upload-line sidebar-menu-item-icon"></i>
+                Uploaded
+            </a>
+        </li>
+        <li class="sidebar-menu-divider mt-3 mb-1 text-uppercase">Fitur</li>
+        <li class="sidebar-menu-item has-dropdown">
+            <a href="#">
+                <i class="ri-pages-line sidebar-menu-item-icon"></i>
+                Umum
+                <i class="ri-arrow-down-s-line sidebar-menu-item-accordion ms-auto"></i>
+            </a>
+            <ul class="sidebar-dropdown-menu" id="fiturUmum">
+                <div class="d-flex justify-content-center my-2">
+                    <div class="btn-group-vertical m-auto grid gap-2" role="group"
+                        aria-label="Vertical button group">
+                        <form id="" class="form-control-sm col-sm-6" action="{{ url_for('normal') }}" method="POST" enctype="multipart/form-data">
+                            <button type="submit" class="btn btn-sm btn-primary" >Normal</button>
+                        </form>
+                        <form id="" class="form-control-sm col-sm-6" action="{{ url_for('grayscale') }}" method="POST" enctype="multipart/form-data">
+                            <button type="submit" class="btn btn-sm btn-primary">Grayscale</button>
+                        </form>
+                    </div>
+                    <div class="btn-group-vertical m-auto  grid gap-2" role="group"
+                        aria-label="Vertical button group">
+                        <form id="" class="form-control-sm col-sm-6 " action="{{ url_for('zoomin') }}" method="POST" enctype="multipart/form-data">
+                            <button type="submit" class="btn btn-sm btn-primary">Zoom In</button>
+                        </form>
+                        <form id="" class="form-control-sm col-sm-6" action="{{ url_for('zoomout') }}" method="POST" enctype="multipart/form-data">
+                            <button type="submit" class="btn btn-sm btn-primary">Zoom Out</button>
+                        </form>
+                    </div>
+                </div>
+
+            </ul>
+        </li>
+        <li class="sidebar-menu-item has-dropdown" id="pergeseran">
+            <a href="#">
+                <i class="ri-drag-move-fill sidebar-menu-item-icon"></i>
+                Pergeseran
+                <i class="ri-arrow-down-s-line sidebar-menu-item-accordion ms-auto"></i>
+            </a>
+            <ul class="sidebar-dropdown-menu padleft">
+                <div class="d-flex my-2"></div>
+                <div class="btn-group-vertical m-auto grid gap-2 " role="group" aria-label="Vertical button group">
+                    <form id="" action="{{ url_for('move_left') }}" method="POST" enctype="multipart/form-data">
+                        <button type="submit" class="g-col-12 btn btn-primary">
+                            <i class="ri-arrow-left-line"></i></button>
+                    </form>
+                    <form id="" action="{{ url_for('move_up') }}" method="POST" enctype="multipart/form-data">
+                        <button type="submit" class="g-col-12 btn btn-primary">
+                            <i class="ri-arrow-up-line"></i></button>
+                    </form>
+                </div>
+                <div class="btn-group-vertical m-auto  grid gap-2 " role="group" aria-label="Vertical button group">
+                    <form id="" action="{{ url_for('move_right') }}" method="POST" enctype="multipart/form-data">
+                        <button type="submit" class="g-col-12 btn btn-primary"><i
+                            class="ri-arrow-right-line"></i></button>
+                    </form>
+                    <form id="" action="{{ url_for('move_down') }}" method="POST" enctype="multipart/form-data">
+                        <button type="submit" class="g-col-12 btn btn-primary"><i
+                            class="ri-arrow-down-line"></i></button>
+                    </form>
+                </div>
+            </ul>
+        </li>
+        <li class="sidebar-menu-item has-dropdown" id="penerangan">
+            <a href="#">
+                <i class="ri-sun-line sidebar-menu-item-icon"></i>
+                Penerangan
+                <i class="ri-arrow-down-s-line sidebar-menu-item-accordion ms-auto"></i>
+            </a>
+            <ul class="sidebar-dropdown-menu">
+                <div class="d-flex my-2">
+                    <div class="btn-group-vertical m-1 grid gap-2 " role="group" aria-label="Vertical button group">
+                        <form id="" action="{{ url_for('brightness_multiplication') }}" method="POST" enctype="multipart/form-data">
+                            <button type="submit" class="g-col-4 btn btn-sm btn-primary">Terang (*)</button>
+                        </form>
+                        <form id="" action="{{ url_for('brightness_division') }}" method="POST" enctype="multipart/form-data">
+                            <button type="submit" class="g-col-4 btn btn-sm btn-primary">Gelap (/)</button>
+                        </form>
+                    </div>
+                    <div class="btn-group-vertical m-1 grid gap-2 " role="group" aria-label="Vertical button group">
+                        <form id="" action="{{ url_for('brightness_addition') }}" method="POST" enctype="multipart/form-data">
+                            <button type="submit" class="g-col-4 btn btn-sm btn-primary">Terang (+)</button>
+                        </form>
+                        <form id="" action="{{ url_for('brightness_substraction') }}" method="POST" enctype="multipart/form-data">
+                            <button type="submit" class="g-col-4 btn btn-sm btn-primary">Gelap (-)</button>
+                        </form>
+                    </div>
+                </div>
+            </ul>
+        </li>
+        <li class="sidebar-menu-item has-dropdown" id="histogram">
+            <a href="#">
+                <i class="ri-line-chart-line sidebar-menu-item-icon"></i>
+                Analisis Gambar
+                <i class="ri-arrow-down-s-line sidebar-menu-item-accordion ms-auto"></i>
+            </a>
+            <ul class="sidebar-dropdown-menu padleft">
+                <form id="" action="{{ url_for('histogram_rgb') }}" method="POST" enctype="multipart/form-data">
+                    <button type="submit" class="btn btn-sm btn-primary m-2">Histogram</button>
+                </form>
+            </ul>
+        </li>
+        <li class="sidebar-menu-item has-dropdown" id="histogramEqualizer">
+            <a href="#">
+                <i class="ri-equalizer-line sidebar-menu-item-icon"></i>
+                Pemrosesan Gambar
+                <i class="ri-arrow-down-s-line sidebar-menu-item-accordion ms-auto"></i>
+            </a>
+            <ul class="sidebar-dropdown-menu">
+                <form id="" action="{{ url_for('histogram_equalizer') }}" method="POST" enctype="multipart/form-data">
+                    <button type="submit" class="btn btn-sm btn-primary m-2">Histogram Equalizer</button>
+                </form>
+            </ul>
+        </li>
+        <li class="sidebar-menu-item has-dropdown" id="nilaiRGB">
+            <a href="#">
+                <i class="ri-numbers-line sidebar-menu-item-icon"></i>
+                Nilai RGB
+                <i class="ri-arrow-down-s-line sidebar-menu-item-accordion ms-auto"></i>
+            </a>
+            <ul class="sidebar-dropdown-menu">
+                <form id="" class="d-flex justify-content-center align-items-center " action="{{ url_for('get_image_data') }}" method="POST" enctype="multipart/form-data">
+                    <button type="submit" class="btn btn-sm btn-primary m-2">Show</button>
+                </form>
+            </ul>
+        </li>
+        <li class="sidebar-menu-item has-dropdown" id="filterGambar">
+            <a href="#">
+                <i class="ri-filter-line sidebar-menu-item-icon"></i>
+                Filter Gambar
+                <i class="ri-arrow-down-s-line sidebar-menu-item-accordion ms-auto"></i>
+            </a>
+            <ul class="sidebar-dropdown-menu">
+                <div class="btn-group-vertical my-2 mx-4 grid gap-2 d-flex justify-content-center align-items-center  " role="group"
+                    aria-label="Vertical button group">
+                    <form id="" action="{{ url_for('edge_detection') }}" method="POST" enctype="multipart/form-data">
+                        <button type="submit" class="g-col-6 btn btn-sm btn-primary">Edge Detection</button>
+                    </form>
+                    <form id="" action="{{ url_for('blur') }}" method="POST" enctype="multipart/form-data">
+                        <button type="submit" class="g-col-6 btn btn-sm btn-primary">Blur</button>
+                    </form>
+                    <form id="" action="{{ url_for('sharpening') }}" method="POST" enctype="multipart/form-data">
+                        <button type="submit" class="g-col-6 btn btn-sm btn-primary">Sharpening</button>
+                    </form>
+                </div>
+            </ul>
+        </li>
+        <li class="sidebar-menu-item has-dropdown" id="segmentation">
+            <a href="#">
+                <i class="ri-pie-chart-box-line sidebar-menu-item-icon"></i>
+                Segmentation
+                <i class="ri-arrow-down-s-line sidebar-menu-item-accordion ms-auto"></i>
+            </a>
+            <ul class="sidebar-dropdown-menu">
+                <form id="" action="{{ url_for('thresholding') }}" method="POST" enctype="multipart/form-data">
+                    <div class="input-group  input-group-sm my-2">
+                        <span class="input-group-text" id="basic-addon1">Batas Bawah</span>
+                        <input type="number" name="lower_thres" class="form-control" placeholder="0-255" aria-label="BatasBawah"
+                            aria-describedby="basic-addon1">
+                    </div>
+                    <div class="input-group  input-group-sm my-2">
+                        <span class="input-group-text" id="basic-addon1">Batas Atas</span>
+                        <input type="number" name="upper_thres" class="form-control" placeholder="0-255" aria-label="BatasAtas"
+                            aria-describedby="basic-addon1">
+                    </div>
+                    <div class="sidebar-dropdown-menu-item my-2 d-flex justify-content-center">
+                        <button type="submit" class="btn btn-primary btn-sm">Thresholding</button>
+                    </div>
+                </form>
+            </ul>
+        </li>
+        <li class="sidebar-menu-item has-dropdown" id="crop">
+            <a href="#">
+                <i class="ri-crop-line sidebar-menu-item-icon"></i>
+                Crop
+                <i class="ri-arrow-down-s-line sidebar-menu-item-accordion ms-auto"></i>
+            </a>
+            <ul class="sidebar-dropdown-menu mx-auto text-center ">
+                <form id="puzzle-form" action="{{ url_for('create_puzzle') }}" method="POST" enctype="multipart/form-data">
+                    <div class="card m-3">
+                        <div class="card-body">
+                            <h6 class="card-title">Puzzle</h6>
+                            <input class="form-control form-control-sm" id="pieces" name="pieces" type="number" placeholder="num of pieces" required
+                                aria-label=".form-control-sm example">
+                            <button type="submit" class="btn btn-primary btn-sm m-2 ">Apply</button>
+                        </div>
+                    </div>
+                </form>
+                <form id="puzzle-form" action="{{ url_for('random_puzzle') }}" method="POST" enctype="multipart/form-data">
+                    <div class="card m-3">
+                        <div class="card-body">
+                            <h6 class="card-title">Random Puzzle</h6>
+                            <input class="form-control form-control-sm" id="pieces" name="pieces" type="number" placeholder="num of pieces" required
+                                aria-label=".form-control-sm example">
+                            <button type="submit" class="btn btn-primary btn-sm m-2 ">Apply</button>
+                        </div>
+                    </div>
+                </form>
+            </ul>
+        </li>
+        <li class="sidebar-menu-item has-dropdown" id="filterSpasial">
+            <a href="#">
+                <i class="ri-filter-fill sidebar-menu-item-icon"></i>
+                Filter Spasial
+                <i class="ri-arrow-down-s-line sidebar-menu-item-accordion ms-auto"></i>
+            </a>
+            <ul class="sidebar-dropdown-menu text-center mx-auto ">
+                <form id="" action="{{ url_for('identity') }}" method="POST" enctype="multipart/form-data">
+                    <button type="submit" class="btn btn-primary btn-sm m-2 ">Identity</button>
+                </form>
+                <div class="card m-3">
+                    <div class="card-body">
+                        <h6 class="card-title">Mean Blur (2D)</h6>
+                        <form id="" action="{{ url_for('meanBlur2D') }}" method="POST" enctype="multipart/form-data">
+                            <input class="form-control form-control-sm" type="text" placeholder="input nilai kernel"
+                            aria-label=".form-control-sm example" name="kernel">
+                            <button type="submit" class="btn btn-primary btn-sm m-2 ">Apply</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="card m-3">
+                    <div class="card-body">
+                        <h6 class="card-title">Mean Blur (CV)</h6>
+                        <form id="" action="{{ url_for('meanBlurCV') }}" method="POST" enctype="multipart/form-data">
+                            <input class="form-control form-control-sm" type="text" placeholder="input nilai kernel"
+                            aria-label=".form-control-sm example" name="kernel">
+                            <button type="submit" class="btn btn-primary btn-sm m-2 ">Apply</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="card m-3">
+                    <div class="card-body">
+                        <h6 class="card-title">Gaussian Blur</h6>
+                        <form id="" action="{{ url_for('gaussian') }}" method="POST" enctype="multipart/form-data">
+                            <input class="form-control form-control-sm" type="text" placeholder="input nilai kernel"
+                            aria-label=".form-control-sm example" name="kernel">
+                            <button type="submit" class="btn btn-primary btn-sm m-2 ">Apply</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="card m-3">
+                    <div class="card-body">
+                        <h6 class="card-title">Median Blur</h6>
+                        <form id="" action="{{ url_for('median') }}" method="POST" enctype="multipart/form-data">
+                            <input class="form-control form-control-sm" type="text" placeholder="input nilai kernel"
+                            aria-label=".form-control-sm example" name="kernel">
+                            <button type="submit" class="btn btn-primary btn-sm m-2 ">Apply</button>
+                        </form>
+                    </div>
+                </div>
+                <form id="" action="{{ url_for('sharp') }}" method="POST" enctype="multipart/form-data">
+                    <button type="submit" class="btn btn-primary btn-sm m-2 ">Sharpening</button>
+                </form>
+                <form id="" action="{{ url_for('bilateral') }}" method="POST" enctype="multipart/form-data">
+                    <button type="submit" class="btn btn-primary btn-sm m-2 ">Bilateral</button>
+                </form>
+                <form id="" action="{{ url_for('zero_padding') }}" method="POST" enctype="multipart/form-data">
+                    <button type="submit" class="btn btn-primary btn-sm m-2 ">Zero Padding</button>
+                </form>
+                <div class="card m-3">
+                    <div class="card-body">
+                        <h6 class="card-title">Lowpass</h6>
+                        <form id="" action="{{ url_for('lowpass') }}" method="POST" enctype="multipart/form-data">
+                            <input class="form-control form-control-sm" type="text" placeholder="input nilai kernel"
+                            aria-label=".form-control-sm example" name="kernel">
+                            <button type="submit" class="btn btn-primary btn-sm m-2 ">Apply</button>
+                        </form>
+                    </div>
+                </div>
+                <form id="" action="{{ url_for('highpass') }}" method="POST" enctype="multipart/form-data">
+                    <button type="submit" class="btn btn-primary btn-sm m-2 ">Highpass</button>
+                </form>
+                <form id="" action="{{ url_for('bandpass') }}" method="POST" enctype="multipart/form-data">
+                    <button type="submit" class="btn btn-primary btn-sm m-2 ">Bandpass</button>
+                </form>
+            </ul>
+        </li>
+        <li class="sidebar-menu-item has-dropdown" id="memoyGame">
+            <a href="#">
+                <i class="ri-gamepad-line sidebar-menu-item-icon"></i>
+                Memory Game
+                <i class="ri-arrow-down-s-line sidebar-menu-item-accordion ms-auto"></i>
+            </a>
+            <ul class="sidebar-dropdown-menu mx-auto text-center ">
+                <form id="" action="{{ url_for('play_game') }}" method="POST" enctype="multipart/form-data">
+                    <button type="submit" class="btn btn-primary btn-sm m-2 ">Play</button>
+                </form>
+            </ul>
+        </li>
+        <li class="sidebar-menu-item has-dropdown" id="filterSpasial">
+            <a href="#">
+                <i class="ri-image-fill sidebar-menu-item-icon"></i>
+                Citra Biner
+                <i class="ri-arrow-down-s-line sidebar-menu-item-accordion ms-auto"></i>
+            </a>
+            <ul class="sidebar-dropdown-menu text-center mx-auto ">
+                <form id="" action="{{ url_for('convert2binary') }}" method="POST" enctype="multipart/form-data">
+                    <button type="submit" class="btn btn-primary btn-sm m-2 ">Convert to Binary</button>
+                </form>
+                <form id="" action="{{ url_for('dilasi') }}" method="POST" enctype="multipart/form-data">
+                    <button type="submit" class="btn btn-primary btn-sm m-2 ">Dilasi</button>
+                </form>
+                <form id="" action="{{ url_for('erosi') }}" method="POST" enctype="multipart/form-data">
+                    <button type="submit" class="btn btn-primary btn-sm m-2 ">Erosi</button>
+                </form>
+                <form id="" action="{{ url_for('opening') }}" method="POST" enctype="multipart/form-data">
+                    <button type="submit" class="btn btn-primary btn-sm m-2 ">Opening</button>
+                </form>
+                <form id="" action="{{ url_for('closing') }}" method="POST" enctype="multipart/form-data">
+                    <button type="submit" class="btn btn-primary btn-sm m-2 ">Closing</button>
+                </form>
+                <form id="" action="{{ url_for('opening_closing') }}" method="POST" enctype="multipart/form-data">
+                    <button type="submit" class="btn btn-primary btn-sm m-2 ">Opening Closing</button>
+                </form>
+                <form id="" action="{{ url_for('boundary_extraction') }}" method="POST" enctype="multipart/form-data">
+                    <button type="submit" class="btn btn-primary btn-sm m-2 ">Boundary Extraction</button>
+                </form>
+                <form id="" action="{{ url_for('erosi_slash') }}" method="POST" enctype="multipart/form-data">
+                    <button type="submit" class="btn btn-primary btn-sm m-2 ">Erosi Slash</button>
+                </form>
+                <form id="" action="{{ url_for('erosi_backslash') }}" method="POST" enctype="multipart/form-data">
+                    <button type="submit" class="btn btn-primary btn-sm m-2 ">Erosi Backslash</button>
+                </form>
+                <form id="" action="{{ url_for('erosi_dot') }}" method="POST" enctype="multipart/form-data">
+                    <button type="submit" class="btn btn-primary btn-sm m-2 ">Erosi Dot</button>
+                </form>
+                <form id="" action="{{ url_for('erosi_stripe') }}" method="POST" enctype="multipart/form-data">
+                    <button type="submit" class="btn btn-primary btn-sm m-2 ">Erosi Stripe</button>
+                </form>
+            </ul>
+        </li>
+        <li class="sidebar-menu-item has-dropdown" id="filterSpasial">
+            <a href="#">
+                <i class="ri-shape-fill sidebar-menu-item-icon"></i>
+                Deteksi Angka
+                <i class="ri-arrow-down-s-line sidebar-menu-item-accordion ms-auto"></i>
+            </a>
+            <ul class="sidebar-dropdown-menu text-center mx-auto ">
+                <div class="card m-3">
+                    <div class="card-body">
+                        <h6 class="card-title">Buat Citra Angka</h6>
+                        <form id="" action="{{ url_for('createNumberImage') }}" method="POST" enctype="multipart/form-data">
+                            <input class="form-control form-control-sm" type="text" placeholder="input angka"
+                            aria-label=".form-control-sm example" name="number">
+                            <button type="submit" class="btn btn-primary btn-sm m-2 ">Generate</button>
+                        </form>
+                    </div>
+                </div>
+            </ul>
+        </li>
+    </ul>
+</div>
+<div class="sidebar-overlay"></div>
+
+<!-- end: Sidebar -->

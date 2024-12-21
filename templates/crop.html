@@ -1,0 +1,40 @@
+{% extends "layout.html" %} 
+{% block body %}
+    {% include "includes/_sidebar.html" %}
+    <!-- start: Main -->
+    <main class="bg-light">
+        <div class="p-2">
+            
+            {% include "includes/_navbar.html" %}
+
+            <!-- start: Content -->
+            <div class="my-auto p-5 d-flex justify-content-center align-items-center">
+                <!-- start: Image -->
+                <div class="row g-3" id="puzzle-container">
+                    <div class="col-12 col-md-6 col-xl-6">
+                        <div class="card border-0 shadow-sm h-100">
+                            <div class="card-header bg-white text-center align-self-center">
+                                <b>Cropped Images</b>
+                            </div>
+                            <div class="card-body d-flex justify-content-center align-items-center">
+                                <div class="puzzle-pieces" style="display: grid; grid-template-columns: repeat({{ pieces }}, 1fr);">
+                                    {% for row in range(pieces) %}
+                                        {% for col in range(pieces) %}
+                                        <div class="p-2 bd-highlight">
+                                            <img src="{{ url_for('static', filename='img/puzzle_pieces/piece_' ~ row ~ '_' ~ col ~ '.png') }}"
+                                                alt="puzzle piece">
+                                        </div>
+                                        {% endfor %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end: Image -->
+            </div>
+            <!-- end: Content -->
+        </div>
+    </main>
+    <!-- end: Main -->
+{% endblock %}

@@ -1,0 +1,8 @@
+# File/folder virtual environment
+.venv/
+.venv.zip/
+
+# File editor atau sistem
+.idea/
+.vscode/
+__pycache__/

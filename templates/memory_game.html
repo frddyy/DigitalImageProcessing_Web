@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+{% block body %}
+{% include "includes/_sidebar.html" %}
+<!-- start: Main -->
+<main class="bg-light">
+    <div class="p-2">
+
+        {% include "includes/_navbar.html" %}
+
+        <!-- start: Content -->
+        <div class="my-auto p-5 d-flex justify-content-center align-items-center">
+            <!-- start: Image -->
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-header bg-white text-center">
+                    <p class="card-title"><b>Memory Game</b></p>
+                    <p class="card-subtitle ">Score: <span id="score">0</span></p>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        {% for photo in photos %}
+                        <div class="col-md-3" onclick="flipImage(this)"
+                            data-ori="/static/img/brand/image-processing_6114207.png"
+                            data-new-image="{{ photo_folder }}/{{ photo.filename }}">
+                            <img class="game-img flip-card" id="{{ photo.filename }}"
+                                src="/static/img/brand/image-processing_6114207.png" alt="Random Photo"
+                                style="height: 200px; margin: 30px;">
+                            <p class="visually-hidden">{{ photo.filename }}</p>
+                        </div>
+                        {% endfor %}
+
+                        {% for photo in photos %}
+                        <div class="col-md-3" onclick="flipImage(this)"
+                            data-ori="/static/img/brand/image-processing_6114207.png"
+                            data-new-image="{{ photo_folder }}/{{ photo.filename }}">
+                            <img class="game-img flip-card" id="{{ photo.filename }}"
+                                src="/static/img/brand/image-processing_6114207.png" alt="Random Photo"
+                                style="height: 200px; margin: 30px;">
+                            <p class="visually-hidden ">{{ photo.filename }}</p>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                        <button type="button" class="btn btn-danger" id="surrenderBtn">Surrender</button>
+                        <button type="button" class="btn btn-warning" id="resetBtn">Reset</button>
+                        <button type="button" class="btn btn-success" id="hintBtn">Hint</button>
+                    </div>
+                </div>
+            </div>
+            <!-- end: Image -->
+        </div>
+        <!-- end: Content -->
+    </div>
+</main>
+<!-- end: Main -->
+{% endblock %}

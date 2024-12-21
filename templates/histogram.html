@@ -1,0 +1,95 @@
+{% extends "layout.html" %} {% block body %}
+{% include "includes/_sidebar.html" %}
+<!-- start: Main -->
+<main class="bg-light ">
+    <div class="p-2">
+        
+        {% include "includes/_navbar.html" %}
+
+        <!-- start: Content -->
+        <div class="py-4">
+            <!-- start: Image -->
+            <div class="row g-3 mt-2">
+                <div class="col-12 col-md-6 col-xl-6">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-header bg-white text-center">
+                            <b>Before</b>
+                        </div>
+                        <div class="card-body d-flex justify-content-center">
+                            <img class="img-fluid" src="../static/img/img_normal.jpg" alt="image here">
+                        </div>
+                        <div class="card-footer">
+                            Image Dimension: {{ image_dim[0] }} x {{ image_dim[1] }}
+                          </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-xl-6">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-header bg-white text-center">
+                            <b>After</b>
+                        </div>
+                        <div class="card-body d-flex justify-content-center">
+                            <img class="img-fluid" src="{{ url_for('static', filename='img/img_now.jpg') }}" alt="image here">
+                        </div>
+                        <div class="card-footer">
+                            Image Dimension: {{ image_dim[0] }} x {{ image_dim[1] }}
+                          </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end: Image -->
+
+            <!-- start: Histogram -->
+            <div class="row g-3 mt-2 d-flex justify-content-center align-items-center">
+                <div class="col-12 col-md-4 col-xl-4">
+                    {% if file_paths[2] %}
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-header bg-white text-center">
+                            <b>Red Histogram</b>
+                        </div>
+                        <div class="card-body d-flex justify-content-center">
+                            <img class="img-fluid" src="{{ url_for('static', filename=file_paths[0]) }}" alt="image here">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 col-xl-4">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-header bg-white text-center">
+                            <b>Green Histogram</b>
+                        </div>
+                        <div class="card-body d-flex justify-content-center">
+                            <img class="img-fluid" src="{{ url_for('static', filename=file_paths[1]) }}" alt="image here">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 col-xl-4">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-header bg-white text-center">
+                            <b>Blue Histogram</b>
+                        </div>
+                        <div class="card-body d-flex justify-content-center">
+                            <img class="img-fluid" src="{{ url_for('static', filename=file_paths[2]) }}" alt="image here">
+                        </div>
+                    </div>
+                </div>
+                {% else %}
+                <div class="col-12 col-md-12 col-xl-12 mx-auto ">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-header bg-white text-center">
+                            <b>Black Histogram</b>
+                        </div>
+                        <div class="card-body d-flex justify-content-center">
+                            <img class="img-fluid" src="{{ url_for('static', filename=file_paths[0]) }}" alt="image here">
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+            <!-- end: Histogram -->
+        </div>
+        <!-- end: Content -->
+    </div>
+</main>
+<!-- end: Main -->
+{% endblock %}
+
